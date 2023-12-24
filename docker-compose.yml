@@ -1,0 +1,45 @@
+version: '3.8'
+services:
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: prometheus
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+      - ./prometheus/alertrules.yml:/etc/prometheus/alertrules.yml
+      - ./prometheus/targets.json:/etc/prometheus/targets.json
+    ports:
+      - 9090:9090
+    restart: always
+    networks:
+      - monitor
+  node-exporter:
+    image: prom/node-exporter:latest
+    container_name: node-exporter
+    ports:
+      - 9100:9100
+    restart: always
+    networks:
+      - monitor
+  alert-manager:
+    image: prom/alertmanager:latest
+    container_name: alert-manager
+    volumes:
+      - "./alertmanager.yml:/alertmanager/alertmanager.yml"
+    ports:
+      - 9093:9093
+    restart: always
+    networks:
+      - monitor
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    ports:
+      - 3000:3000
+    depends_on:
+      - prometheus
+    restart: always
+    networks:
+      - monitor
+networks:
+  monitor:
+    driver: bridge
