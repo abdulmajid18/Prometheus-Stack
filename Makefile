@@ -6,7 +6,7 @@ file2 := ./prometheus/targets.json
 local := 127.0.0.1
 
 service-discovery:
-ls
+
 	@echo "***************************************"
 	@echo "****SERVICE DISCOVERY OF PUBLIC IP*****"
 	@echo "*****PUBLIC IPADDRESS : $(pub_ip)******"
