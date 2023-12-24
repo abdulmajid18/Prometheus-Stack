@@ -1,73 +1,43 @@
 variable "region" {
   type        = string
-  description = "Region of the EC2 instance"
-}
-
-variable "volume-size" {
-  type        = number
-}
-
-variable "ami_id" {
-  type        = string
-  description = "AMI ID of the EC2 instance"
-}
-
-variable "instance_type" {
-  type        = string
-  description = "Instance type of the EC2 instance"
-}
-
-variable "key_name" {
-  type        = string
-  description = "Key name of the EC2 instance"
-}
-
-variable "instance_count" {
-  type        = number
-  description = "Count of the EC2 instances"
-}
-
-variable "subnet_ids" {
-  type        = list(string)
-  description = "Subnet IDs of the EC2 instance"
+  description = "Region of the security group."
 }
 
 variable "vpc_id" {
   type        = string
-  description = "VPC ID for the security group"
+  description = "ID of the VPC associated with the security group."
 }
 
 variable "tags" {
   default     = {}
   type        = map(string)
-  description = "Extra tags to attach to the security group resources"
+  description = "Extra tags to attach to the EC2 security group resources."
 }
 
 variable "name" {
   type        = string
-  description = "The name of the resources"
+  description = "The name of the resources."
 }
 
 variable "environment" {
   type        = string
-  description = "The environment name for the resources"
+  description = "The environment name for the resources."
 }
 
 variable "owner" {
   type        = string
-  description = "Owner's name for the resource"
+  description = "Owner's name for the resource."
 }
 
 variable "cost_center" {
   type        = string
-  description = "Cost center identifier for the resource"
+  description = "Cost center identifier for the resource."
 }
 
 variable "application" {
   type        = string
-  description = "Name of the application related to the resource"
+  description = "Name of the application related to the resource."
 }
-
 
 variable "ingress_cidr_from_port" {
   type        = list(number)
@@ -88,6 +58,7 @@ variable "ingress_cidr_description" {
   type        = list(string)
   description = "Description for this ingress rule"
 }
+
 
 variable "ingress_cidr_block" {
   type        = list(string)
@@ -118,6 +89,7 @@ variable "create_ingress_cidr" {
   type        = bool
   description = "Enable or disable CIDR block ingress rules."
 }
+
 
 variable "create_egress_cidr" {
   type        = bool

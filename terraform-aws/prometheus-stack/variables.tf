@@ -1,10 +1,10 @@
 variable "region" {
-  type = string
+  type        = string
   description = "Region of the EC2 instance"
 }
 
 variable "volume_size" {
-  type        = number
+  type = number
 }
 
 variable "ami_id" {
