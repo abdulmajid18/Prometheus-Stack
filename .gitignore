@@ -1,0 +1,47 @@
+# Local .terraform directories
+**/.terraform/*
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
+*.tfplan
+
+# Crash log files
+crash.log
+
+# Exclude override files
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Exclude CLI configuration files
+.terraformrc
+terraform.rc
+
+# Exclude CLI binary
+terraform
+
+# Exclude provider credentials file
+terraform.tfvars
+
+# Exclude any files with sensitive information
+*.pem
+*.key
+*.pub
+
+# Exclude OS-specific files
+.DS_Store
+Thumbs.db
+
+# Exclude Terraform variables file
+terraform.tfvars
+
+# Exclude sensitive variables file
+*.auto.tfvars
+
+# Exclude .idea directory for JetBrains IDEs
+.idea/
+
+# Exclude Visual Studio Code settings
+.vscode/
