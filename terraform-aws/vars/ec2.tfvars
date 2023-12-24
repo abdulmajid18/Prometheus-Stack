@@ -2,13 +2,9 @@
 region         = "us-east-1"
 ami_id         = "ami-0fc5d935ebf8bc3bc"
 instance_type  = "t2.micro"
-key_name       = "ross-monitoring-key"
+key_name       = "ross-aws-key"
 instance_count = 1
-volume-size    = 20
-
-# VPC id
-vpc_id     = "vpc-0a5ca4a92c2e10163"
-subnet_ids = ["subnet-058a7514ba8adbb07"]
+volume_size    = 20
 
 # Ec2 Tags
 name        = "prometheus-stack"
