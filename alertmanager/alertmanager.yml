@@ -9,7 +9,7 @@ receivers:
   email_configs:
     - to: 'nuhuabdulmajid58@gmail.com' # Replace with your email address
       from: 'nuhuabdulmajid58@gmail.com' # Replace with the sender email address
-      smarthost: 'smtp.example.com:587' # Replace with your SMTP server address and port
+      smarthost: 'smtp.gmail.com:587' # Replace with your SMTP server address and port
       auth_username: 'nuhuabdulmajid58@gmail.com' # Replace with your SMTP username
       auth_password: 'pcwysqtuuuhzqnxy' # Replace with your SMTP password
       send_resolved: true

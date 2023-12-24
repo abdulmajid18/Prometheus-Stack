@@ -13,7 +13,7 @@ services:
       - '--config.file=/etc/prometheus/prometheus.yml'
     ports:
       - 9090:9090
-    restart: always
+    restart: unless-stopped
     networks:
       - monitor
   node-exporter:
@@ -21,17 +21,19 @@ services:
     container_name: node-exporter
     ports:
       - 9100:9100
-    restart: always
+    restart: unless-stopped
     networks:
       - monitor
   alert-manager:
     image: prom/alertmanager:latest
     container_name: alert-manager
-    volumes:
-      - "./alertmanager.yml:/alertmanager/alertmanager.yml"
     ports:
       - 9093:9093
-    restart: always
+    volumes:
+      - ./alertmanager/alertmanager.yml:/etc/alertmanager/alertmanager.yml
+    command:
+      - '--config.file=/etc/alertmanager/alertmanager.yml'
+    restart: unless-stopped
     networks:
       - monitor
   grafana:
@@ -41,7 +43,7 @@ services:
       - 3000:3000
     depends_on:
       - prometheus
-    restart: always
+    restart: unless-stopped
     networks:
       - monitor
 networks:

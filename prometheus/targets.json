@@ -4,7 +4,16 @@
         "job": "Host"
       },
       "targets": [
-        "127.0.0.1:9100"
+        "node-exporter:9100"
+      ]
+    },
+
+    {
+      "labels": {
+        "job": "Prometheus"
+      },
+      "targets": [
+        "prometheus:9090"
       ]
     }
   ]

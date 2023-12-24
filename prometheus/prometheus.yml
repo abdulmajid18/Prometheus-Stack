@@ -6,12 +6,12 @@ alerting:
   alertmanagers:
     - static_configs:
         - targets:
-            - "127.0.0.1:9093" 
+            - "alert-manager:9093" 
 rule_files:
   - alertrules.yml
 
 scrape_configs:
-- job_name: 'Host'
-  file_sd_configs:
-  - files:
-    - 'targets.json'
+  - job_name: 'node'
+    file_sd_configs:
+    - files:
+      - 'targets.json'
