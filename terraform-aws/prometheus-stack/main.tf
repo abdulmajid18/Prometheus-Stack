@@ -1,5 +1,7 @@
 provider "aws" {
-  region = var.region
+  region     = var.region
+  access_key = var.aws_access_key
+  secret_key = var.aws_secret_key
 }
 
 module "ec2" {
@@ -9,14 +11,14 @@ module "ec2" {
   instance_type      = var.instance_type
   key_name           = var.key_name
   instance_count     = var.instance_count
-  subnet_ids         = var.subnet_ids
+  subnet_ids         = data.aws_subnets.defaults.ids
   name               = var.name
   environment        = var.environment
   owner              = var.owner
   cost_center        = var.cost_center
   application        = var.application
   volume_size        = var.volume_size
-  security_group_ids = module.security_group_ids
+  security_group_ids = module.security-group.security_group_ids
 }
 
 module "security-group" {
@@ -28,7 +30,7 @@ module "security-group" {
   owner       = var.owner
   cost_center = var.cost_center
   application = var.application
-  vpc_id      = var.vpc_id
+  vpc_id      = data.aws_vpc.default.id
 
   ingress_cidr_from_port   = var.ingress_cidr_from_port
   ingress_cidr_to_port     = var.ingress_cidr_to_port

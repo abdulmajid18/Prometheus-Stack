@@ -1,3 +1,15 @@
+variable "aws_access_key" {
+  type        = string
+  description = "AWS Access key"
+  sensitive   = true
+}
+
+variable "aws_secret_key" {
+  type        = string
+  description = "AWS Secret key"
+  sensitive   = true
+}
+
 variable "region" {
   type        = string
   description = "Region of the EC2 instance"
@@ -25,16 +37,6 @@ variable "key_name" {
 variable "instance_count" {
   type        = number
   description = "Count of the EC2 instances"
-}
-
-variable "subnet_ids" {
-  type        = list(string)
-  description = "Subnet IDs of the EC2 instance"
-}
-
-variable "vpc_id" {
-  type        = string
-  description = "VPC ID for the security group"
 }
 
 variable "tags" {
