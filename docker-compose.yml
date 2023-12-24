@@ -7,6 +7,10 @@ services:
       - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
       - ./prometheus/alertrules.yml:/etc/prometheus/alertrules.yml
       - ./prometheus/targets.json:/etc/prometheus/targets.json
+    command:
+      - '--storage.tsdb.path=/prometheus'
+      - '--storage.tsdb.retention.time=7d'
+      - '--config.file=/etc/prometheus/prometheus.yml'
     ports:
       - 9090:9090
     restart: always
